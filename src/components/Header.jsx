@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './Header.css'
 import { Link } from 'react-router-dom'
 
-export default function Header() {
+export default function Header({ onCartClick }) {
     const [menuOpen, setMenuOpen] = useState(false)
     return (
         <header className="header">
@@ -34,7 +34,9 @@ export default function Header() {
                     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>                    <div className="header-user">
                         <span className="user-account">👤<span className="user-label"> Account<br />LOGIN</span></span>
                         <span className="user-wishlist">♡<span className="user-label"> Wishlist<br />3-ITEMS</span></span>
-                        <span className="user-cart">🛒<span className="user-label"> Cart<br />3-ITEMS</span></span>
+                        <span className="user-cart" onClick={onCartClick} style={{ cursor: 'pointer' }}>
+                            🛒<span className="user-label"> Cart<br />3-ITEMS</span>
+                        </span>
                     </div>
                 </div>
                 <div className="header-nav">

@@ -2,8 +2,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';
-import NewArrivals from './NewArrivals';
-
 
 const deals = [
   {
@@ -177,7 +175,6 @@ export default function DealOfTheDay() {
           ))}
         </Swiper>
       </div>
-      <NewArrivals/>
     </section>
   );
 }
