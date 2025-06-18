@@ -89,7 +89,7 @@
 
 .header-user span {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     font-size: 0.98rem;
     font-weight: 500;

@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom"; // Add useNavigate
+import { Link, useNavigate } from "react-router-dom";
 import "./Header.css";
+import { FaUser, FaHeart, FaShoppingCart } from "react-icons/fa"; // Import icons
 
 export default function Header({ onCartClick }) {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -56,26 +57,26 @@ export default function Header({ onCartClick }) {
           <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
           <div className="header-user">
             <Link to="/login" className="user-account-link">
-            <span className="user-account">
-              👤<span className="user-label"> Account<br />LOGIN</span>
-            </span>
+              <span className="user-account">
+                <FaUser style={{ verticalAlign: "middle" }} />
+                <span className="user-label"> Account <span className="item-count"> LOGIN </span></span>
+              </span>
             </Link>
-            
-
-             <Link to="/whislist" className="user-account-link">
+            <Link to="/wishlist" className="user-account-link">
               <span className="user-wishlist" style={{ cursor: "pointer" }}>
                 <span className="user-wishlist">
-                  ♡<span className="user-label"> Wishlist<br />3-ITEMS</span>
+                  <FaHeart style={{ color: "#e74c3c", marginRight: "4px" }} />
+                  <span className="user-label"> Wishlist <span className="item-count"> 3-ITEMS </span> </span>
                 </span>
               </span>
             </Link>
-
             <span
               className="user-cart"
               onClick={onCartClick}
               style={{ cursor: "pointer" }}
             >
-              🛒<span className="user-label"> Cart<br />3-ITEMS</span>
+              <FaShoppingCart style={{ marginRight: "4px" }} />
+              <span className="user-label"> Cart <span className="item-count"> 3-ITEMS </span></span>
             </span>
           </div>
         </div>

@@ -2,12 +2,14 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';
+import { useEffect, useState } from "react";
 
 const deals = [
   {
     tag: "NEW",
     tagColor: "#4db38c",
-    image: "https://i.ibb.co/0j1Yw8s/jackfruit.png",
+    // Use Unsplash Source to generate an image based on the product title
+    image: "https://source.unsplash.com/400x300/?" + encodeURIComponent("Stick Fiber Masala Magic"),
     category: "Foods",
     title: "Stick Fiber Masala Magic",
     rating: 3,
@@ -18,7 +20,7 @@ const deals = [
   {
     tag: "NEW",
     tagColor: "#4db38c",
-    image: "https://i.ibb.co/6b6jQw3/cherry.png",
+    image: "https://source.unsplash.com/400x300/?" + encodeURIComponent("Natural Hub Cherry Karonda"),
     category: "Fresh Fruit",
     title: "Natural Hub Cherry Karonda",
     rating: 4,
@@ -29,7 +31,7 @@ const deals = [
   {
     tag: "",
     tagColor: "",
-    image: "https://i.ibb.co/3yQw2wM/mango-juice.png",
+    image: "https://source.unsplash.com/400x300/?" + encodeURIComponent("Fresh Mango Juice Pack"),
     category: "Foods",
     title: "Fresh Mango Juice Pack",
     rating: 2,
@@ -40,7 +42,7 @@ const deals = [
   {
     tag: "",
     tagColor: "",
-    image: "https://i.ibb.co/4Z1k5yF/ginger.png",
+    image: "https://source.unsplash.com/400x300/?" + encodeURIComponent("Fresh Organic Ginger Pack"),
     category: "Tuber Root",
     title: "Fresh Organic Ginger Pack",
     rating: 4,
@@ -51,7 +53,7 @@ const deals = [
   {
     tag: "SALE",
     tagColor: "#ff6b81",
-    image: "https://i.ibb.co/0j1Yw8s/trail-mix.png",
+    image: "https://source.unsplash.com/400x300/?" + encodeURIComponent("Mixed Nuts Berries Pack"),
     category: "Dried Fruits",
     title: "Mixed Nuts Berries Pack",
     rating: 4,
@@ -62,7 +64,7 @@ const deals = [
    {
     tag: "",
     tagColor: "",
-    image: "https://i.ibb.co/4Z1k5yF/ginger.png",
+    image: "https://source.unsplash.com/400x300/?" + encodeURIComponent("Fresh Organic Ginger Pack"),
     category: "Tuber Root",
     title: "Fresh Organic Ginger Pack",
     rating: 4,
@@ -73,7 +75,7 @@ const deals = [
    {
     tag: "",
     tagColor: "",
-    image: "https://i.ibb.co/4Z1k5yF/ginger.png",
+    image: "https://source.unsplash.com/400x300/?" + encodeURIComponent("Fresh Organic Ginger Pack"),
     category: "Tuber Root",
     title: "Fresh Organic Ginger Pack",
     rating: 4,
@@ -94,7 +96,6 @@ function StarRating({ value }) {
 }
 
 export default function DealOfTheDay() {
-    
   return (
     <section style={{ margin: "48px 0" }}>
       <div className="container">
@@ -158,7 +159,11 @@ export default function DealOfTheDay() {
                       padding: "2px 12px"
                     }}>{deal.tag}</span>
                   )}
-                  <img src={deal.image} alt={deal.title} style={{ maxHeight: 150, maxWidth: "100%", objectFit: "contain" }} />
+                  <img
+                    src={deal.image}
+                    alt={deal.title}
+                    style={{ maxHeight: 150, maxWidth: "100%", objectFit: "contain" }}
+                  />
                 </div>
                 <div style={{ borderTop: "1px solid #f0f0f0", padding: 24, flex: 1, display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
                   <div style={{ color: "#888", fontSize: 15, marginBottom: 4 }}>{deal.category}</div>
